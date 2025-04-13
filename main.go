@@ -72,5 +72,9 @@ func main() {
 			imageOut += rStr + gStr + bStr
 		}
 	}
-	fmt.Println(imageOut)
+	outFile, _ := os.Create("output.txt")
+	_, err = outFile.Write([]byte(imageOut))
+	if err != nil {
+		return
+	}
 }
